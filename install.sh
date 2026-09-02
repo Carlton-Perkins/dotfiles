@@ -21,11 +21,8 @@ echo "[SETUP] Nix channels"
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 
-echo "[INSTALL] GitHub CLI"
-nix-env -iA nixpkgs.gh
-
 echo "[SETUP] Nix dotfiles"
-gh repo clone Carlton-Perkins/nix-dotfiles "$HOME/nix-dotfiles"
+git clone git@github.com:Carlton-Perkins/nix-dotfiles.git "$HOME/nix-dotfiles"
 cd "$HOME/nix-dotfiles"
 
 nix-shell '<home-manager>' -A install
